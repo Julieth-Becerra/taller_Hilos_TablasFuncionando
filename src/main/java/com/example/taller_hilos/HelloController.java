@@ -24,7 +24,7 @@ public class HelloController implements Initializable {
     private TextField txtId;
 
     @FXML
-    private Label lblTurnos;
+    private com.example.taller_hilos.Label lblTurnos;
 
     @FXML
     private Label lblATurn;
@@ -46,6 +46,7 @@ public class HelloController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        boxServices.getItems().addAll(listServices);
+        //lblTurnos.start();
     }
 }
