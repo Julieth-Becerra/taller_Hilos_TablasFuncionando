@@ -1,5 +1,6 @@
 package com.example.taller_hilos;
 
+import Model.Person;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -9,11 +10,16 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
 public class HelloController implements Initializable {
     ObservableList<String> listServices = FXCollections.observableArrayList("Autorizaciones", "Citas", "Atencion al cliente");
+    List<Person> personAList = new ArrayList<>();
+    List<Person> personCList = new ArrayList<>();
+    List<Person> personACList = new ArrayList<>();
     @FXML
     private ComboBox<String> boxServices;
 
@@ -48,20 +54,41 @@ public class HelloController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //Se agregan los items al select
         boxServices.getItems().addAll(listServices);
+        startThreads();
+    }
 
+    private void startThreads() {
         //Se colocan los label que dependen del estado
         lblAEstado.setChild(lblATurn);
         lblCEstado.setChild(lblCTurn);
         lblACEstado.setChild(lblACTurn);
 
-        //Se coloca el valor que debe acompañar al index
-        lblAEstado.setType("A");
-        lblCEstado.setType("C");
-        lblACEstado.setType("AC");
+    }
 
-        //Se inicializa el hilo
-        lblAEstado.start();
-        lblCEstado.start();
-        lblACEstado.start();
+    @FXML
+    public void test() {
+        Person persona = new Person(this.txtName.getText(), this.txtId.getText());
+        persona.setModule(boxServices.getValue());
+        switch (boxServices.getValue()) {
+            case "Autorizaciones" -> {
+                lblTurnos.setText("A"+lblAEstado.getSize());
+                persona.asignTurn(lblTurnos.getText());
+                lblAEstado.addItem(persona);
+                lblAEstado.start();
+            }
+            case "Citas" -> {
+                lblTurnos.setText("C"+lblCEstado.getSize());
+                persona.asignTurn(lblTurnos.getText());
+                lblCEstado.addItem(persona);
+                lblCEstado.start();
+            }
+            case "Atencion al cliente" -> {
+                lblTurnos.setText("AC"+lblACEstado.getSize());
+                persona.asignTurn(lblTurnos.getText());
+                lblACEstado.addItem(persona);
+                lblACEstado.start();
+            }
+        }
+        startThreads();
     }
 }

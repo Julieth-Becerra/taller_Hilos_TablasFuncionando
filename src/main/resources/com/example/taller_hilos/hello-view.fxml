@@ -16,9 +16,9 @@
    <children>
       <AnchorPane prefHeight="587.0" prefWidth="959.0">
          <children>
-            <AnchorPane layoutX="6.0" layoutY="7.0" prefHeight="552.0" prefWidth="479.0" style="-fx-background-color: orange;">
+            <AnchorPane layoutY="7.0" prefHeight="552.0" prefWidth="479.0" style="-fx-background-color: orange;">
                <children>
-                  <ComboBox fx:id="boxServices" layoutX="77.0" layoutY="224.0" prefHeight="26.0" prefWidth="326.0" promptText="Selecicone..." />
+                  <ComboBox fx:id="boxServices" layoutX="77.0" layoutY="224.0" onAction="#test" prefHeight="26.0" prefWidth="326.0" promptText="Selecicone..." />
                   <TextField fx:id="txtName" layoutX="93.0" layoutY="111.0" prefHeight="31.0" prefWidth="300.0" text="Digite su nombre" />
                   <TextField fx:id="txtId" layoutX="93.0" layoutY="158.0" prefHeight="31.0" prefWidth="300.0" text="Ingrese su identificacion " />
                   <Label fx:id="lblTurnos" alignment="CENTER" layoutX="117.0" layoutY="330.0" prefHeight="172.0" prefWidth="246.0" style="-fx-background-color: white;" text="A1">
