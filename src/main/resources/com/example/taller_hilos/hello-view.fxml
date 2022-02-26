@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="608.0" prefWidth="999.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.example.taller_hilos.HelloController">
+<VBox alignment="CENTER" prefHeight="608.0" prefWidth="999.0" spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taller_hilos.HelloController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -46,12 +46,12 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="190.0" layoutY="38.0" prefHeight="31.0" prefWidth="77.0" text="Turno">
+                  <Label alignment="CENTER" layoutX="184.0" layoutY="40.0" prefHeight="31.0" prefWidth="77.0" text="Turno">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="324.0" layoutY="38.0" prefHeight="31.0" prefWidth="77.0" text="Estado">
+                  <Label alignment="CENTER" layoutX="321.0" layoutY="40.0" prefHeight="31.0" prefWidth="77.0" text="Estado">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -71,21 +71,21 @@
                         <Font size="30.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblAEstado" alignment="CENTER" layoutX="310.0" layoutY="93.0" prefHeight="101.0" prefWidth="105.0" text="En espera">
+                  <com.example.taller_hilos.Label fx:id="lblAEstado" alignment="CENTER" layoutX="310.0" layoutY="93.0" prefHeight="101.0" prefWidth="105.0" text="En espera">
                      <font>
                         <Font size="19.0" />
                      </font>
-                  </Label>
-                  <Label fx:id="lblCEstado" alignment="CENTER" layoutX="310.0" layoutY="224.0" prefHeight="101.0" prefWidth="105.0" text="Atendiendo">
+                  </com.example.taller_hilos.Label>
+                  <com.example.taller_hilos.Label fx:id="lblCEstado" alignment="CENTER" layoutX="310.0" layoutY="224.0" prefHeight="101.0" prefWidth="105.0" text="Atendiendo">
                      <font>
                         <Font size="19.0" />
                      </font>
-                  </Label>
-                  <Label fx:id="lblACEstado" alignment="CENTER" layoutX="310.0" layoutY="356.0" prefHeight="101.0" prefWidth="93.0" text="Determinando turno">
+                  </com.example.taller_hilos.Label>
+                  <com.example.taller_hilos.Label fx:id="lblACEstado" alignment="CENTER" layoutX="310.0" layoutY="356.0" prefHeight="101.0" prefWidth="105.0" text="Determinando turno">
                      <font>
                         <Font size="19.0" />
                      </font>
-                  </Label>
+                  </com.example.taller_hilos.Label>
                   <Separator layoutX="23.0" layoutY="201.0" prefHeight="10.0" prefWidth="400.0" style="-fx-background-color: #ECECEC;" />
                   <Separator layoutX="23.0" layoutY="337.0" prefHeight="10.0" prefWidth="400.0" style="-fx-background-color: #ECECEC;" />
                   <Separator layoutX="23.0" layoutY="74.0" prefHeight="10.0" prefWidth="400.0" style="-fx-background-color: #ECECEC;" />

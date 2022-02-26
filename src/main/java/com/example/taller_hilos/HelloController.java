@@ -24,7 +24,7 @@ public class HelloController implements Initializable {
     private TextField txtId;
 
     @FXML
-    private com.example.taller_hilos.Label lblTurnos;
+    private Label lblTurnos;
 
     @FXML
     private Label lblATurn;
@@ -36,17 +36,32 @@ public class HelloController implements Initializable {
     private Label lblACTurn;
 
     @FXML
-    private Label lblAEstado;
+    private com.example.taller_hilos.Label lblAEstado;
 
     @FXML
-    private Label lblCEstado;
+    private com.example.taller_hilos.Label lblCEstado;
 
     @FXML
-    private Label lblACEstado;
+    private com.example.taller_hilos.Label lblACEstado;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        //Se agregan los items al select
         boxServices.getItems().addAll(listServices);
-        //lblTurnos.start();
+
+        //Se colocan los label que dependen del estado
+        lblAEstado.setChild(lblATurn);
+        lblCEstado.setChild(lblCTurn);
+        lblACEstado.setChild(lblACTurn);
+
+        //Se coloca el valor que debe acompañar al index
+        lblAEstado.setType("A");
+        lblCEstado.setType("C");
+        lblACEstado.setType("AC");
+
+        //Se inicializa el hilo
+        lblAEstado.start();
+        lblCEstado.start();
+        lblACEstado.start();
     }
 }
