@@ -8,9 +8,14 @@ public class Person {
     private boolean status;
     private String turn;
 
-    public Person(String name, String id) {
+    public Person (){
+
+    }
+
+    public Person(String name, String id, String turn) {
         this.name = name;
         this.id = id;
+        this.turn = turn;
         this.status = false;
     }
 
@@ -59,8 +64,6 @@ public class Person {
         return "Person{" +
                 "name='" + name + '\'' +
                 ", id='" + id + '\'' +
-                ", module='" + module + '\'' +
-                ", status=" + status +
                 ", turn='" + turn + '\'' +
                 '}';
     }

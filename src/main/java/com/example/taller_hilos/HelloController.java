@@ -3,11 +3,14 @@ package com.example.taller_hilos;
 import Model.Person;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.*;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -49,10 +52,18 @@ public class HelloController implements Initializable {
 
     @FXML
     private com.example.taller_hilos.Label lblACEstado;
+    private Object FXMLLoader;
+
+    @FXML
+    private AnchorPane estadisticas;
+
+    @FXML
+    private AnchorPane turnos;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //Se agregan los items al select
+         //Se agregan los items al select
         boxServices.getItems().addAll(listServices);
         startThreads();
     }
@@ -67,28 +78,65 @@ public class HelloController implements Initializable {
 
     @FXML
     public void test() {
-        Person persona = new Person(this.txtName.getText(), this.txtId.getText());
-        persona.setModule(boxServices.getValue());
-        switch (boxServices.getValue()) {
-            case "Autorizaciones" -> {
-                lblTurnos.setText("A"+lblAEstado.getSize());
-                persona.asignTurn(lblTurnos.getText());
-                lblAEstado.addItem(persona);
-                lblAEstado.start();
+
+        if (txtName.getText().equals("") || txtId.getText().equals("") ||  boxServices.getValue() == null){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setTitle("Error");
+            alert.setContentText("Hay campos vacios, por favor complete la informacion");
+            alert.showAndWait();
+        }else {
+            Person persona = new Person(this.txtName.getText(), this.txtId.getText(), this.lblTurnos.getText());
+            persona.setModule(boxServices.getValue());
+            System.out.println(boxServices.getValue());
+            switch (boxServices.getValue()) {
+                case "Autorizaciones" -> {
+                    lblTurnos.setText("A" + lblAEstado.getSize());
+                    persona.asignTurn(lblTurnos.getText());
+                    lblAEstado.addItem(persona);
+                    personAList.add(new Person(txtName.getText(), txtId.getText(), lblTurnos.getText()));
+                    lblAEstado.start();
+                    break;
+                }
+                case "Citas" -> {
+                    lblTurnos.setText("C" + lblCEstado.getSize());
+                    persona.asignTurn(lblTurnos.getText());
+                    lblCEstado.addItem(persona);
+                    personCList.add(new Person(txtName.getText(), txtId.getText(), lblTurnos.getText()));
+                    lblCEstado.start();
+                    break;
+                }
+                case "Atencion al cliente" -> {
+                    lblTurnos.setText("AC" + lblACEstado.getSize());
+                    persona.asignTurn(lblTurnos.getText());
+                    lblACEstado.addItem(persona);
+                    personACList.add(new Person(txtName.getText(), txtId.getText(), lblTurnos.getText()));
+                    lblACEstado.start();
+                    break;
+                }
             }
-            case "Citas" -> {
-                lblTurnos.setText("C"+lblCEstado.getSize());
-                persona.asignTurn(lblTurnos.getText());
-                lblCEstado.addItem(persona);
-                lblCEstado.start();
-            }
-            case "Atencion al cliente" -> {
-                lblTurnos.setText("AC"+lblACEstado.getSize());
-                persona.asignTurn(lblTurnos.getText());
-                lblACEstado.addItem(persona);
-                lblACEstado.start();
-            }
+            startThreads();
         }
-        startThreads();
+    }
+
+    public void estadisticas (){
+        estadisticas.setVisible(true);
+        turnos.setVisible(false);
+        for (int i = 0; i < personAList.size(); i++) {
+
+            System.out.println(personAList.get(i));
+        }
+        for (int i = 0; i < personCList.size() ; i++) {
+
+            System.out.println(personCList.get(i));
+        }
+        for (int i = 0; i < personACList.size(); i++) {
+            System.out.println(personACList.get(i));
+        }
+    }
+
+    public void cerrar (){
+        estadisticas.setVisible(false);
+        turnos.setVisible(true);
     }
 }
