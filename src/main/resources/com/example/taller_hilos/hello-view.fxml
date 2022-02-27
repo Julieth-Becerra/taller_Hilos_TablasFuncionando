@@ -21,43 +21,54 @@
          <children>
             <AnchorPane layoutY="7.0" prefHeight="552.0" prefWidth="479.0" style="-fx-background-color: orange;">
                <children>
-                  <ComboBox fx:id="boxServices" layoutX="77.0" layoutY="212.0" prefHeight="26.0" prefWidth="326.0" promptText="Seleccione..." />
+                  <ComboBox fx:id="boxServices" layoutX="77.0" layoutY="212.0" prefHeight="26.0" prefWidth="326.0" promptText="Seleccione..." style="-fx-background-color: white;" />
                   <TextField fx:id="txtName" layoutX="93.0" layoutY="111.0" prefHeight="31.0" prefWidth="300.0" promptText="Digite nombre" />
                   <TextField fx:id="txtId" layoutX="93.0" layoutY="158.0" prefHeight="31.0" prefWidth="300.0" promptText="Digite identificacion" />
-                  <Label fx:id="lblTurnos" alignment="CENTER" layoutX="117.0" layoutY="330.0" prefHeight="172.0" prefWidth="246.0" style="-fx-background-color: white;" text="-----">
+                  <Label fx:id="lblTurnos" alignment="CENTER" layoutX="117.0" layoutY="347.0" prefHeight="172.0" prefWidth="246.0" style="-fx-background-color: white;" text="-----">
                      <font>
                         <Font size="65.0" />
                      </font>
                   </Label>
-                  <Label layoutX="100.0" layoutY="293.0" prefHeight="31.0" prefWidth="105.0" text="Su turno es:" />
-                  <Button layoutX="198.0" layoutY="263.0" mnemonicParsing="false" onAction="#test" text="Tomar Turno" />
+                  <Label layoutX="100.0" layoutY="307.0" prefHeight="31.0" prefWidth="105.0" text="Su turno es:">
+                     <font>
+                        <Font name="Forte" size="18.0" />
+                     </font></Label>
+                  <Button layoutX="183.0" layoutY="265.0" mnemonicParsing="false" onAction="#test" text="Tomar Turno">
+                     <font>
+                        <Font name="Forte" size="16.0" />
+                     </font></Button>
+                  <Label layoutX="122.0" layoutY="35.0" text="MediSanas EPS">
+                     <font>
+                        <Font name="Forte" size="35.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="turnos" layoutX="496.0" layoutY="7.0" prefHeight="552.0" prefWidth="457.0" style="-fx-background-color: cyan;">
+            <AnchorPane fx:id="turnos" layoutX="502.0" layoutY="7.0" prefHeight="552.0" prefWidth="457.0" style="-fx-background-color: cyan;">
                <children>
                   <Label alignment="CENTER" layoutX="32.0" layoutY="92.0" prefHeight="101.0" prefWidth="116.0" text="Modulo A">
                      <font>
-                        <Font size="20.0" />
+                        <Font name="Forte" size="20.0" />
                      </font>
                   </Label>
                   <Label alignment="CENTER" layoutX="32.0" layoutY="226.0" prefHeight="101.0" prefWidth="116.0" text="Modulo C">
                      <font>
-                        <Font size="20.0" />
+                        <Font name="Forte" size="20.0" />
                      </font>
                   </Label>
                   <Label alignment="CENTER" layoutX="32.0" layoutY="360.0" prefHeight="101.0" prefWidth="116.0" text="Modulo AC">
                      <font>
-                        <Font size="20.0" />
+                        <Font name="Forte" size="20.0" />
                      </font>
                   </Label>
                   <Label alignment="CENTER" layoutX="184.0" layoutY="40.0" prefHeight="31.0" prefWidth="77.0" text="Turno">
                      <font>
-                        <Font size="20.0" />
+                        <Font name="Forte" size="22.0" />
                      </font>
                   </Label>
                   <Label alignment="CENTER" layoutX="321.0" layoutY="40.0" prefHeight="31.0" prefWidth="77.0" text="Estado">
                      <font>
-                        <Font size="20.0" />
+                        <Font name="Forte" size="22.0" />
                      </font>
                   </Label>
                   <Label fx:id="lblATurn" alignment="CENTER" layoutX="173.0" layoutY="92.0" prefHeight="101.0" prefWidth="105.0">
@@ -75,17 +86,17 @@
                         <Font size="30.0" />
                      </font>
                   </Label>
-                  <com.example.taller_hilos.Label fx:id="lblAEstado" alignment="CENTER" layoutX="310.0" layoutY="93.0" prefHeight="101.0" prefWidth="105.0" text="En espera">
+                  <com.example.taller_hilos.Label fx:id="lblAEstado" alignment="CENTER" layoutX="310.0" layoutY="93.0" prefHeight="101.0" prefWidth="105.0" text="">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </com.example.taller_hilos.Label>
-                  <com.example.taller_hilos.Label fx:id="lblCEstado" alignment="CENTER" layoutX="310.0" layoutY="224.0" prefHeight="101.0" prefWidth="105.0" text="Atendiendo">
+                  <com.example.taller_hilos.Label fx:id="lblCEstado" alignment="CENTER" layoutX="310.0" layoutY="224.0" prefHeight="101.0" prefWidth="105.0" text="">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </com.example.taller_hilos.Label>
-                  <com.example.taller_hilos.Label fx:id="lblACEstado" alignment="CENTER" layoutX="310.0" layoutY="356.0" prefHeight="101.0" prefWidth="105.0" text="Determinando turno">
+                  <com.example.taller_hilos.Label fx:id="lblACEstado" alignment="CENTER" layoutX="310.0" layoutY="356.0" prefHeight="101.0" prefWidth="105.0" text="">
                      <font>
                         <Font size="19.0" />
                      </font>
@@ -99,12 +110,18 @@
                   <Separator layoutX="294.0" layoutY="27.0" orientation="VERTICAL" prefHeight="446.0" prefWidth="3.0" style="-fx-background-color: #ECECEC;" />
                   <Separator layoutX="424.0" layoutY="27.0" orientation="VERTICAL" prefHeight="446.0" prefWidth="3.0" style="-fx-background-color: #ECECEC;" />
                   <Separator layoutX="26.0" layoutY="26.0" prefHeight="10.0" prefWidth="400.0" style="-fx-background-color: #ECECEC;" />
-                  <Button layoutX="190.0" layoutY="501.0" mnemonicParsing="false" onAction="#estadisticas" text="Estadisticas" />
+                  <Button layoutX="184.0" layoutY="497.0" mnemonicParsing="false" onAction="#estadisticas" style="-fx-background-color: #D6EAF8;" text="Estadisticas">
+                     <font>
+                        <Font name="Forte" size="16.0" />
+                     </font></Button>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="estadisticas" layoutX="496.0" layoutY="7.0" prefHeight="552.0" prefWidth="457.0" style="-fx-background-color: red;" visible="false">
+            <AnchorPane fx:id="estadisticas" layoutX="496.0" layoutY="7.0" prefHeight="552.0" prefWidth="457.0" style="-fx-background-color: #FFE800;" visible="false">
                <children>
-                  <Button layoutX="193.0" layoutY="475.0" mnemonicParsing="false" onAction="#cerrar" text="Aceptar" />
+                  <Button layoutX="181.0" layoutY="484.0" mnemonicParsing="false" onAction="#cerrar" style="-fx-background-color: #D6EAF8;" text="Aceptar">
+                     <font>
+                        <Font name="Forte" size="20.0" />
+                     </font></Button>
                   <TableView fx:id="tablaA" layoutX="66.0" layoutY="50.0" prefHeight="121.0" prefWidth="326.0">
                     <columns>
                       <TableColumn fx:id="AName" prefWidth="75.0" text="Nombre" />
@@ -112,23 +129,32 @@
                         <TableColumn fx:id="ATurno" prefWidth="75.0" text="Turno" />
                     </columns>
                   </TableView>
-                  <TableView fx:id="tablaC" layoutX="66.0" layoutY="196.0" prefHeight="121.0" prefWidth="326.0">
+                  <TableView fx:id="tablaC" layoutX="66.0" layoutY="202.0" prefHeight="121.0" prefWidth="326.0">
                      <columns>
                         <TableColumn fx:id="CName" prefWidth="75.0" text="Nombre" />
                         <TableColumn fx:id="CId" prefWidth="75.0" text="ID" />
                         <TableColumn fx:id="CTurn" prefWidth="75.0" text="Turno" />
                      </columns>
                   </TableView>
-                  <TableView fx:id="tablaAC" layoutX="66.0" layoutY="342.0" prefHeight="121.0" prefWidth="326.0">
+                  <TableView fx:id="tablaAC" layoutX="66.0" layoutY="357.0" prefHeight="121.0" prefWidth="326.0">
                      <columns>
                         <TableColumn fx:id="ACName" prefWidth="75.0" text="Nombre" />
                         <TableColumn fx:id="ACId" prefWidth="75.0" text="ID" />
                         <TableColumn fx:id="ACTurn" prefWidth="75.0" text="Turno" />
                      </columns>
                   </TableView>
-                  <Label layoutX="66.0" layoutY="23.0" style="-fx-background-color: white;" text="Autorizaciones" />
-                  <Label layoutX="66.0" layoutY="173.0" style="-fx-background-color: white;" text="Citas" />
-                  <Label layoutX="66.0" layoutY="319.0" style="-fx-background-color: white;" text="Atencion al cliente" />
+                  <Label layoutX="66.0" layoutY="23.0" text="Autorizaciones">
+                     <font>
+                        <Font name="Forte" size="24.0" />
+                     </font></Label>
+                  <Label layoutX="66.0" layoutY="173.0" text="Citas">
+                     <font>
+                        <Font name="Forte" size="24.0" />
+                     </font></Label>
+                  <Label layoutX="66.0" layoutY="324.0" text="Atencion al cliente">
+                     <font>
+                        <Font name="Forte" size="24.0" />
+                     </font></Label>
                </children>
             </AnchorPane>
          </children>
